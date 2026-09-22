@@ -1,0 +1,305 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=3cm,bottom=3.5cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+\setmainfont{Helvetica}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{microtype}
+% Colors
+\definecolor{darkgray}{RGB}{51,51,51}
+\definecolor{medgray}{RGB}{120,120,120}
+\definecolor{lightgray}{RGB}{200,200,200}
+\definecolor{placeholder}{RGB}{255,255,120}
+
+% Highlight command for unfilled fields
+\newcommand{\PH}[1]{\colorbox{placeholder}{#1}}
+
+% ══════════════════════════════════════════════
+% VERTRAGSDATEN — hier ausfüllen
+% ══════════════════════════════════════════════
+\newcommand{\ClientName}{\PH{[Firma GmbH, Straße Nr., PLZ Stadt]}}
+\newcommand{\ClientKurzname}{\PH{[Firma]}}
+\newcommand{\ClientAdresse}{\PH{[Straße Nr., PLZ Stadt]}}
+\newcommand{\ClientStadt}{\PH{[Stadt]}}
+\newcommand{\ClientBeschreibung}{\PH{[Beschreibung der Geschäftstätigkeit des Auftraggebers.]}}
+\newcommand{\Vertragsbeginn}{\PH{[TT.MM.JJJJ]}}
+\newcommand{\Mindestlaufzeit}{\PH{[X]}}
+\newcommand{\Stundensatz}{\PH{[XXX,XX]}}
+\newcommand{\Mindeststunden}{\PH{[XX]}}
+\newcommand{\Monatsverguetung}{\PH{[X.XXX,XX]}}
+\newcommand{\RolloverCap}{\PH{[XX]}}
+\newcommand{\Vertragsstrafe}{\PH{[X.XXX,XX]}}
+% ══════════════════════════════════════════════
+
+% Typography
+\color{darkgray}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+% Section formatting
+\titleformat{\section}[block]{\large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{24pt}{8pt}
+\titleformat{\subsection}[block]{\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{16pt}{6pt}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[C]{\footnotesize\color{medgray}\thepage\,/\,\pageref{LastPage}}
+
+% First page style
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+  \fancyfoot[C]{\footnotesize\color{medgray}\thepage\,/\,\pageref{LastPage}}
+}
+
+\begin{document}
+\thispagestyle{firstpage}
+
+% Title
+\begin{center}
+{\LARGE\bfseries Dienstleistungsvertrag}
+\end{center}
+
+\vspace{16pt}
+
+% Vertragsdaten table
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\toprule
+\textbf{Dokument} & Dienstleistungsvertrag \\[4pt]
+\textbf{Auftraggeber} & \ClientName \\[4pt]
+\textbf{Auftragnehmer} & Khalit Hartmann \\[4pt]
+\textbf{Geburtsdatum} & 29.06.1996 \\[4pt]
+\textbf{Anschrift} & Engelmannweg 6, 13403 Berlin \\[4pt]
+\textbf{Vertragsbeginn} & \Vertragsbeginn \\[4pt]
+\textbf{Mindestlaufzeit} & \Mindestlaufzeit{} Monate \\[4pt]
+\textbf{Umfang} & Mindestkontingent von \Mindeststunden{} Stunden pro Kalendermonat (siehe §\,5) \\[4pt]
+\textbf{Stundensatz} & \Stundensatz\,€ (netto) pro Stunde zzgl.\ der gesetzlichen Umsatzsteuer \\
+\bottomrule
+\end{tabularx}
+
+\vspace{12pt}
+
+Die o.\,g.\ Angaben werden im Folgenden als „Vertragsdaten" bezeichnet.
+
+\vspace{6pt}
+{\color{lightgray}\hrule height 0.4pt}
+\vspace{6pt}
+
+Zwischen der \ClientKurzname{} (im Folgenden „\ClientKurzname"), \ClientAdresse, und dem Auftragnehmer wird folgender Dienstleistungsvertrag geschlossen. \ClientKurzname{} und der Auftragnehmer werden im Folgenden gemeinsam als „die Vertragsparteien" und einzeln auch als „die Vertragspartei" bezeichnet.
+
+Der Auftragnehmer ist spezialisiert auf die Erbringung von Beratungs- und Entwicklungsleistungen auf dem Gebiet der Informationstechnologie und verfügt über besondere Expertise und Erfahrung in der App- und Web-Entwicklung. \ClientBeschreibung
+
+\ClientKurzname{} beabsichtigt, Beratungs- und Entwicklungsleistungen vom Auftragnehmer in Anspruch zu nehmen. Dies vorausgeschickt, vereinbaren die Vertragsparteien Folgendes:
+
+% ──────────────────────────────────────────────
+\section{§\,1\quad Vertragsgegenstand}
+
+1.1.\quad Der Auftragnehmer wird für \ClientKurzname{} Beratungs- und Entwicklungsleistungen nach Maßgabe des \textbf{als Anlage} zu diesem Vertrag genommenen Leistungsverzeichnisses erbringen.
+
+1.2.\quad Der Auftragnehmer erbringt die vertragsgemäßen Leistungen mit größtmöglicher Sorgfalt und Gewissenhaftigkeit nach dem jeweils neuesten Stand, neuesten Regeln und Erkenntnissen. Der Auftragnehmer berücksichtigt dabei – soweit erforderlich und sinnvoll – allgemeine Verfahrensbeschreibungen und Industriestandards sowie gegebenenfalls spezifische Bestimmungen, Methoden und Anwendungspraktiken von \ClientKurzname.
+
+% ──────────────────────────────────────────────
+\section{§\,2\quad Leistungserbringung}
+
+2.1.\quad Der Auftragnehmer wird die Beratungs- und Entwicklungsleistungen für die Laufzeit dieses Vertrages gemäß §\,8 und in dem in den Vertragsdaten definierten Umfang erbringen, soweit im Einzelfall nicht etwas anderes zwischen den Vertragsparteien vereinbart wird.
+
+2.2.\quad Der Auftragnehmer ist zur Erbringung der vertragsgemäß geschuldeten Leistungen verpflichtet. Bei der Durchführung der Tätigkeit ist der Auftragnehmer jedoch keinen Weisungen im Hinblick auf die Art der Erbringung seiner Leistungen, den Ort der Leistungserbringung ebenso wie die Zeit der Leistungserbringung unterworfen. Der Auftragnehmer wird jedoch bei der Einteilung der Tätigkeitstage und bei der Zeiteinteilung an diesen Tagen diese selbst in der Weise festlegen, dass eine optimale Effizienz bei seiner Tätigkeit und bei der Realisierung des Vertragsgegenstandes dieses Vertrages erzielt wird. Die Leistungserbringung durch den Auftragnehmer erfolgt lediglich in Abstimmung und in Koordination mit \ClientKurzname.
+
+2.3.\quad Der Auftragnehmer ist berechtigt, für die Erbringung des Leistungsgegenstandes Dritte als Subunternehmer einzuschalten. Der Auftragnehmer wird dies \ClientKurzname{} allerdings vor Einschaltung eines Dritten als Subunternehmer in Textform anzeigen.
+
+2.4.\quad Der Auftragnehmer wird \ClientKurzname{} umgehend informieren, wenn Hindernisse oder Beeinträchtigungen auftreten, die Auswirkungen auf die Beratungs- und Entwicklungsleistungen haben können oder die der Auftragnehmer Grund hat, mit dem Auftreten solcher Hindernisse oder Beeinträchtigungen zu rechnen. Die Pflicht des Auftragnehmers zur Erbringung der Beratungs- und Entwicklungsleistungen bleibt hiervon unberührt.
+
+% ──────────────────────────────────────────────
+\section{§\,3\quad Mitwirkungspflichten von \ClientKurzname}
+
+3.1.\quad \ClientKurzname{} hat sämtliche für die Erbringung der Beratungs- und Entwicklungsleistungen durch den Auftragnehmer notwendigen Mitwirkungs- und Beistellungsverpflichtungen zu erfüllen, insbesondere dem Auftragnehmer alle vorhandenen und für die Erbringung der Beratungs- und Entwicklungsleistungen erforderlichen Unterlagen und Informationen rechtzeitig und vollständig aktiv zur Verfügung zu stellen und den Auftragnehmer bei der Ausführung der Tätigkeiten partnerschaftlich zu unterstützen. \ClientKurzname{} wird dafür Sorge tragen, dass dem Auftragnehmer in ausreichender Anzahl geeignete Ansprechpersonen von \ClientKurzname{} mit dem erforderlichen Fachwissen zur Verfügung stehen.
+
+3.2.\quad Zudem hat \ClientKurzname{} dem Auftragnehmer sämtliche Umstände, die für die Erbringung der Beratungs- und Entwicklungsleistungen von Bedeutung sind, unverzüglich anzuzeigen, auch und insbesondere dann, wenn solche erst während der Ausführung der Beratungs- und Entwicklungsleistungen bekannt werden.
+
+% ──────────────────────────────────────────────
+\section{§\,4\quad Loyalitätspflichten}
+
+4.1.\quad Der Auftragnehmer darf auch für andere Auftraggeber tätig sein.
+
+4.2.\quad Der Auftragnehmer verpflichtet sich, während der Laufzeit dieses Vertrags keine Kunden von \ClientKurzname{} abzuwerben oder unter Umgehung von \ClientKurzname{} unmittelbar für Kunden von \ClientKurzname{} tätig zu werden.
+
+4.3.\quad \ClientKurzname{} gestattet dem Auftragnehmer, den Firmennamen und das Unternehmenslogo von \ClientKurzname{} auf seiner Website und in sonstigen Eigendarstellungen als Referenz zu verwenden. Die Verwendung ist auf die Nennung von \ClientKurzname{} als Auftraggeber sowie eine allgemeine Beschreibung der Art der erbrachten Leistungen beschränkt; vertrauliche Informationen gemäß §\,7 dürfen nicht offengelegt werden. Das Logo ist unverändert und unter Beachtung etwaiger Markenrichtlinien von \ClientKurzname{} zu verwenden. \ClientKurzname{} kann die Gestattung jederzeit mit einer Frist von vier (4) Wochen in Textform für die Zukunft widerrufen; bereits veröffentlichte Referenzen sind nach Widerruf innerhalb dieser Frist zu entfernen.
+
+% ──────────────────────────────────────────────
+\section{§\,5\quad Vergütung und Leistungskontingent}
+
+5.1.\quad Der Auftragnehmer erhält für seine Leistungen eine Vergütung auf Stundenbasis in Höhe des in den Vertragsdaten genannten Stundensatzes.
+
+5.2.\quad Die Vertragsparteien vereinbaren ein monatliches Mindestkontingent von \Mindeststunden{} Stunden. Der Auftragnehmer stellt sicher, dass er Leistungen in diesem Umfang anbieten kann, und plant seine Kapazitäten eigenverantwortlich. \ClientKurzname{} vergütet das Mindestkontingent unabhängig vom tatsächlichen Abruf (Kontingentvergütung: \Monatsverguetung\,€ netto zzgl.\ gesetzlicher Umsatzsteuer), soweit der Auftragnehmer die Leistungen anbieten kann. Abgerufene, vom Auftragnehmer aus von ihm zu vertretenden Gründen nicht erbrachte Stunden werden nicht vergütet und bleiben abweichend von Ziffer 5.3 bis zu ihrer Erbringung erhalten.
+
+5.3.\quad Nicht abgerufene Stunden werden auf die folgenden Kalendermonate übertragen, höchstens bis zu insgesamt \RolloverCap{} Stunden. Übertragene Stunden verfallen, wenn sie nicht bis zum Ende des jeweiligen Kalenderquartals abgerufen werden. Bei Vertragsende nicht abgerufene Stunden verfallen ersatzlos.
+
+5.4.\quad Kann der Auftragnehmer Leistungen im Umfang des Mindestkontingents aus Gründen, die in seinem Verantwortungsbereich liegen, nicht anbieten, insbesondere wegen Krankheit oder Urlaub, verringert sich die Kontingentvergütung um die nicht angebotenen Stunden. Je Arbeitstag, an dem der Auftragnehmer nicht zur Verfügung steht, gelten \Mindeststunden{} Stunden geteilt durch die Anzahl der Arbeitstage des jeweiligen Kalendermonats gemäß Ziffer 5.5 als nicht angeboten. Geplante Abwesenheiten zeigt der Auftragnehmer \ClientKurzname{} mindestens zwei Wochen im Voraus in Textform an, unvorhergesehene Abwesenheiten unverzüglich. Eine Zustimmung von \ClientKurzname{} ist nicht erforderlich. Eine Verringerung erfolgt nicht, soweit der Auftragnehmer die Leistungen durch Dritte gemäß Ziffer 2.3 erbringen lässt oder die Stunden im selben Kalendermonat nachholt.
+
+5.5.\quad Für unvollständige Kalendermonate, insbesondere den ersten und letzten Vertragsmonat, wird das Mindestkontingent anteilig auf Basis der Arbeitstage berechnet (Montag bis Freitag, ausgenommen gesetzliche Feiertage in Berlin).
+
+5.6.\quad Leistungen über das Mindestkontingent hinaus können nach vorheriger Abstimmung in Textform beauftragt werden. Sie werden zum vereinbarten Stundensatz vergütet.
+
+5.7.\quad Der Auftragnehmer stellt die Vergütung bis zum 10.\ des Folgemonats in Rechnung, zusammen mit einem Tätigkeitsnachweis, den er selbst führt. Die Rechnung muss den Anforderungen des §\,14 UStG entsprechen. Die Zahlung ist innerhalb von 30 Tagen nach Rechnungseingang fällig.
+
+5.8.\quad Mit der Vergütung sind alle Aufwendungen des Auftragnehmers abgegolten, soweit nicht im Einzelfall schriftlich etwas anderes vereinbart ist. Gesetzliche Vergütungsansprüche nach §§\,32, 32a UrhG bleiben unberührt.
+
+5.9.\quad Die Vertragsparteien sind sich einig, dass der Auftragnehmer die Leistungen aus diesem Vertrag als selbstständiger Unternehmer und nicht als Arbeitnehmer von \ClientKurzname{} erbringt. Ein Arbeitsverhältnis wird nicht begründet. Den Vertragsparteien ist bewusst, dass für die sozialversicherungsrechtliche Beurteilung nicht die vertragliche Bezeichnung, sondern die tatsächliche Durchführung des Vertragsverhältnisses maßgeblich ist.
+
+5.10.\quad Der Auftragnehmer handelt auf eigene unternehmerische Rechnung und eigenes unternehmerisches Risiko. Er setzt eigene Arbeitsmittel und Softwarelizenzen ein, unterhält eigene Betriebshaftpflicht- und Berufshaftpflichtversicherungen und ist für die Abführung seiner Steuern (einschließlich Umsatzsteuer und Einkommensteuer) sowie etwaiger Sozialversicherungsbeiträge selbst verantwortlich.
+
+5.11.\quad Der Auftragnehmer ist nicht in die Arbeitsorganisation von \ClientKurzname{} eingegliedert. \ClientKurzname{} übt gegenüber dem Auftragnehmer kein arbeitsrechtliches Direktionsrecht und keine Disziplinargewalt aus. Der Auftragnehmer nutzt keine Mitarbeiter-Vergünstigungen von \ClientKurzname{} (z.\,B.\ Betriebsfeiern, Mitarbeiterrabatte, betriebliche Altersvorsorge) und wird in internen Organigrammen, E-Mail-Signaturen und Verzeichnissen nicht als Mitarbeiter von \ClientKurzname{} geführt.
+
+% ──────────────────────────────────────────────
+\section{§\,6\quad Rechteeinräumung}
+
+6.1.\quad Der Auftragnehmer erkennt an, dass sämtliche Rechte an allen Tätigkeitsergebnissen (einschließlich Forschungs- und Entwicklungsarbeiten) sowie alle Patent- und Gebrauchsmusterrechte, Designrechte, Urheberrechte, Markenrechte, Datenbankrechte, Rechte am Know-How sowie jegliche sonstige gewerbliche Schutzrechte (im Folgenden „Schutzrechte"), die an den Tätigkeitsergebnissen bestehen, aus ihrer Nutzung entstehen und/oder in ihnen verkörpert sind, einschließlich aller denkbaren Rechtspositionen an Ideen, Entwürfen und Gestaltungen, im Zeitpunkt ihrer Entstehung vollständig und ohne Einschränkung auf \ClientKurzname{} übergehen. Der Auftragnehmer überträgt bereits hiermit alle Rechte an den Tätigkeitsergebnissen und alle Schutzrechte auf \ClientKurzname. \ClientKurzname{} nimmt diese Übertragung hiermit an.
+
+6.2.\quad Für den Fall, dass die unter Ziffer 6.1 vorgesehene Rechtsübertragung nicht wirksam nach zwingend anwendbarem Recht bewirkt werden kann, insbesondere im Hinblick auf das Urheberrecht, räumt der Auftragnehmer \ClientKurzname{} hiermit ein umfassendes, ausschließliches, räumlich und zeitlich unbegrenztes und für alle Nutzungsarten uneingeschränkt geltendes Nutzungsrecht an den Tätigkeitsergebnissen bzw.\ Schutzrechten ein. Soweit dies nach anwendbarem Recht möglich ist, verzichtet der Auftragnehmer hiermit unbedingt und unwiderruflich auf alle Urheberpersönlichkeitsrechte, die an bereits entstandenen oder zukünftigen Tätigkeitsergebnissen bestehen, inklusive des Namensnennungsrechts und des Entstellungsverbots.
+
+6.3.\quad Die Übertragung bzw.\ Rechtseinräumung umfasst insbesondere das Recht, die erstellten Tätigkeitsergebnisse für eigene oder fremde Zwecke in jeder Weise weltweit und zeitlich unbefristet zu verwerten, einschließlich der Verwertung in und auf Produkten, ob eigene oder solche für Dritte, in allen Verwendungsarten. Sie umfasst außerdem das Recht, die Tätigkeitsergebnisse zu vervielfältigen und/oder zu veröffentlichen. Zu den Rechten gehört auch das Bearbeitungsrecht, das heißt die Berechtigung, die Tätigkeitsergebnisse weiter zu bearbeiten oder durch Dritte weiter bearbeiten zu lassen.
+
+6.4.\quad Der Auftragnehmer verpflichtet sich, auf das Verlangen von \ClientKurzname{} hin umgehend alle Dokumente zur Verfügung zu stellen und jede Unterstützung zu leisten, die nach dem Ermessen von \ClientKurzname{} erforderlich sind, um die Rechte an den Tätigkeitsergebnissen sowie die sonstigen Schutzrechte, die an den Tätigkeitsergebnissen bestehen oder aus ihnen entstehen, zu erlangen und/oder derartige Schutzrechte zur Anmeldung zu bringen.
+
+6.5.\quad Die vorstehend genannten Rechtsübertragungen und Einräumung von Nutzungsrechten sind mit der vereinbarten Vergütung des Auftragnehmers in vollem Umfang abgegolten.
+
+6.6.\quad Der Auftragnehmer versichert, dass die Rechtseinräumung und -übertragung in keinerlei Weise im Widerspruch zu irgendeiner bestehenden Verpflichtung seinerseits steht. Der Auftragnehmer steht dafür ein, dass seine freien und festangestellten Mitarbeiter oder sonst von ihm – gleich, ob in eigenem oder in fremden Namen – beauftragte Dritte die für die Realisierung der jeweiligen Projekte erforderlichen Nutzungsrechte nach den vorstehenden Regelungen auf sie bzw.\ \ClientKurzname{} übertragen bzw.\ ihr oder unmittelbar \ClientKurzname{} gegenüber eingeräumt haben oder werden, und zwar in dem Umfang, in dem diese Rechte vom Auftragnehmer auf \ClientKurzname{} zu übertragen bzw.\ einzuräumen sind. Hierzu gehört z.\,B.\ auch der Verzicht auf das Recht der Urheberbenennung oder sonstige Urheberpersönlichkeitsrechte wie auch die unbeschränkte Inanspruchnahme der von ihren Arbeitnehmern geschaffenen – patent- und/oder gebrauchsmusterfähigen – Erfindungen. Auf Anfrage ist der Auftragnehmer zur Herausgabe der entsprechenden Vereinbarungen verpflichtet.
+
+6.7.\quad Der Auftragnehmer steht dafür ein, dass die Verwendung der von ihm und/oder in seinem Auftrag erbrachten Leistungen nicht gegen Rechte Dritter verstößt oder von Rechten Dritter abhängt. Von etwaigen Ansprüchen Dritter, die wegen der vertragsgemäßen Verwertung der vom Auftragnehmer erbrachten Leistungen \ClientKurzname{} gegenüber geltend gemacht werden, wird der Auftragnehmer \ClientKurzname{} auf erstes Anfordern freistellen und \ClientKurzname{} jeglichen Schaden, der \ClientKurzname{} wegen der Inanspruchnahme durch den Dritten entsteht, einschließlich etwaiger für die Rechtsverteidigung anfallenden Gerichts- und Anwaltskosten, ersetzen. Im Übrigen gelten die gesetzlichen Bestimmungen.
+
+% ──────────────────────────────────────────────
+\section{§\,7\quad Vertraulichkeit}
+
+7.1.\quad Die Vertragsparteien verpflichten sich wechselseitig, alle im Rahmen dieses Vertrages erlangten Geschäfts- und Betriebsgeheimnisse der jeweils anderen Vertragspartei, insbesondere alle Informationen über betriebliche Abläufe, Geschäftsbeziehungen und Know-how sowie alle personenbezogenen Daten und geschaffenen Arbeitsergebnisse (im Folgenden „Vertrauliche Informationen"), ausschließlich zur Durchführung dieses Vertrages zu verwenden und zeitlich unbefristet geheim zu halten, sie insbesondere nicht Dritte zugänglich zu machen oder sie in irgendeiner Weise zu verwerten.
+
+7.2.\quad Für jeden Fall des Verstoßes gegen die Verschwiegenheitspflicht gemäß Ziffer 7.1 wird eine Vertragsstrafe in Höhe von \Vertragsstrafe\,€ sofort zur Zahlung fällig. Die Geltendmachung eines darüber hinausgehenden Schadens bleibt vorbehalten.
+
+7.3.\quad Von der Geheimhaltungspflicht gemäß vorstehender Ziffer 7.1 sind solche Informationen ausgenommen, die
+
+7.3.1.\quad der empfangenden Vertragspartei bei Abschluss dieses Vertrags nachweislich bereits bekannt waren oder danach von dritter Seite bekannt werden, ohne dass dadurch eine Vertraulichkeitsvereinbarung, gesetzliche Vorschriften oder behördliche Anordnungen verletzt werden;
+
+7.3.2.\quad bei Abschluss dieses Vertrags öffentlich bekannt sind oder danach öffentlich bekannt gemacht werden, soweit dies nicht auf einer Verletzung dieses Vertrages beruht;
+
+7.3.3.\quad aufgrund gesetzlicher Verpflichtungen oder auf Anordnung eines Gerichts oder einer Behörde offen gelegt werden müssen. Soweit zulässig und möglich, wird die zur Offenlegung verpflichtete Vertragspartei die jeweils andere Vertragspartei vorab unterrichten und ihr Gelegenheit geben, gegen die Offenlegung vorzugehen.
+
+% ──────────────────────────────────────────────
+\section{§\,8\quad Vertragsdauer und Kündigung}
+
+8.1.\quad Dieser Vertrag wird mit Wirkung ab dem in den Vertragsdaten genannten Vertragsbeginn auf unbestimmte Zeit geschlossen. Es gilt eine Mindestvertragslaufzeit von \Mindestlaufzeit{} (\Mindestlaufzeit) Monaten ab Vertragsbeginn.
+
+8.2.\quad Während der Mindestvertragslaufzeit ist eine ordentliche Kündigung durch beide Vertragsparteien ausgeschlossen.
+
+8.3.\quad Nach Ablauf der Mindestvertragslaufzeit kann dieser Vertrag von jeder Vertragspartei mit einer Frist von vier (4) Wochen zum Ende eines Kalendermonats ordentlich gekündigt werden.
+
+8.4.\quad Das Recht beider Vertragsparteien zur Kündigung aus wichtigem Grund bleibt hiervon unberührt.
+
+8.5.\quad Jede Kündigung bedarf zu ihrer Wirksamkeit der Schriftform.
+
+% ──────────────────────────────────────────────
+\section{§\,9\quad Behandlung und Herausgabe von Gegenständen und Unterlagen}
+
+9.1.\quad Die Vertragsparteien verpflichten sich, alle in ihrem Besitz befindlichen, der jeweils anderen Vertragspartei zustehenden Sachen, insbesondere Akten, Unterlagen sowie elektronisch gespeicherte Daten und Datensätze und sonstige den Geschäftsbetrieb der jeweils anderen Vertragspartei betreffende Aufzeichnungen, insbesondere alles Druckmaterial, Urkunden, Zeichnungen, Notizen und Entwürfe sowie Kopien oder Abschriften davon (im Folgenden „Unterlagen"), so sorgfältig zu bewahren, dass sie nicht in die Hände unbefugter Dritter gelangen können.
+
+9.2.\quad Sämtliche Unterlagen sind der jeweils anderen Vertragspartei auf deren Verlangen jederzeit, spätestens bei Beendigung dieses Vertrages, unaufgefordert herauszugeben. Ein Zurückbehaltungsrecht an den Unterlagen steht der jeweils anderen Vertragspartei nicht zu.
+
+% ──────────────────────────────────────────────
+\section{§\,10\quad Haftung}
+
+10.1.\quad Die Vertragsparteien haften einander unbeschränkt nach dem Gesetz.
+
+10.2.\quad Ansprüche wegen der Verletzung vertraglicher oder gesetzlicher Pflichten, gleich aus welchem Rechtsgrund, verjähren 12 Monate nachdem die anspruchsberechtigte Vertragspartei von den anspruchsbegründenden Umständen Kenntnis erlangt hat, spätestens aber 3 Jahre nach der Pflichtverletzung. Grob fahrlässige Unkenntnis steht der Kenntnis gleich.
+
+% ──────────────────────────────────────────────
+\section{§\,11\quad Datenschutz}
+
+11.1.\quad Die Vertragsparteien beachten die einschlägigen datenschutzrechtlichen Vorschriften. Soweit der Auftragnehmer im Rahmen seiner Tätigkeit mit personenbezogenen Daten in Berührung kommt, wird er diese Daten ausschließlich nach Maßgabe der datenschutzrechtlichen Weisungen von \ClientKurzname{} gemäß Art.\ 28 DSGVO erheben, verarbeiten oder nutzen. Diese datenschutzrechtlichen Weisungen begründen kein arbeitsrechtliches Weisungsrecht.
+
+11.2.\quad Die Vertragsparteien verpflichten sich, ihre jeweiligen Mitarbeiter auf die Einhaltung der datenschutzrechtlichen Anforderungen nach der DSGVO zu verpflichten.
+
+% ──────────────────────────────────────────────
+\section{§\,12\quad Schlussbestimmungen}
+
+12.1.\quad Die Allgemeinen Geschäftsbedingungen der jeweils anderen Vertragspartei (Einkaufs-, Verkaufs-, Lieferbedingungen etc.) finden keine Anwendung. Dies gilt auch dann, wenn eine Vertragspartei den Allgemeinen Geschäftsbedingungen der jeweils anderen Vertragspartei nicht ausdrücklich widerspricht.
+
+12.2.\quad Die Rechte und Pflichten aus diesem Vertrag können ohne vorherige schriftliche Zustimmung der jeweils anderen Vertragspartei nicht an Dritte abgetreten werden.
+
+12.3.\quad Die Aufrechnung ist nur mit unbestrittenen oder rechtskräftig festgestellten Forderungen zulässig.
+
+12.4.\quad Es bestehen keine mündlichen Nebenabreden. Änderungen und Ergänzungen dieses Vertrages bedürfen zu ihrer Wirksamkeit der Schriftform. Dies gilt auch für die Änderung dieses Schriftformerfordernisses.
+
+12.5.\quad Dieser Vertrag unterliegt dem Recht der Bundesrepublik Deutschland. Erfüllungsort und ausschließlicher Gerichtsstand ist Berlin.
+
+12.6.\quad Sollten einzelne Klauseln dieses Vertrages unwirksam sein, wird hierdurch die Wirksamkeit der übrigen Bestimmungen nicht berührt. Sollten die Vertragsparteien in der vertraglichen Regelung einen regelungsbedürftigen Punkt übersehen haben, gilt die Regelung als vereinbart, die sie unter Würdigung der beiderseitigen Interessen bei Kenntnis der Lücke im Vertrag vereinbart hätten.
+
+% ──────────────────────────────────────────────
+\vspace{12pt}
+{\color{lightgray}\hrule height 0.4pt}
+\vspace{6pt}
+
+Die Parteien bestätigen den Erhalt einer von der anderen Vertragspartei gegengezeichneten Vertragsausfertigung.
+
+\vspace{20pt}
+
+\begin{tabularx}{\textwidth}{@{}X X@{}}
+\ClientStadt, \rule{4cm}{0.4pt} & Berlin, \rule{4cm}{0.4pt} \\[4pt]
+{\small Ort, Datum} & {\small Ort, Datum} \\[24pt]
+\rule{5.5cm}{0.4pt} & \rule{5.5cm}{0.4pt} \\[4pt]
+{\small\lbrack Name, Funktion\rbrack} & {\small Khalit Hartmann} \\[2pt]
+{\small Vertretungsberechtigte*r} & {\small Auftragnehmer} \\
+{\small \ClientKurzname} & \\
+\end{tabularx}
+
+% ──────────────────────────────────────────────
+%%% ANLAGE 1 — pro Kunde anpassen %%%
+\newpage
+\section*{Anlage 1: Leistungsbeschreibung}
+
+\subsection*{Leistungsbereich}
+
+Der Auftragnehmer erbringt für \ClientKurzname{} Beratungs- und Entwicklungsleistungen im Bereich der digitalen Produkte, insbesondere:
+
+\begin{itemize}[itemsep=1pt,topsep=2pt]
+\item \PH{[Leistung 1]}
+\item \PH{[Leistung 2]}
+\item \PH{[Leistung 3]}
+\item Fehleranalyse und -behebung
+\item Technische Beratung und Dokumentation
+\end{itemize}
+
+\subsection*{Beauftragung und Durchführung}
+
+Einzelne Aufträge (Einzelabrufe) werden durch eine von \ClientKurzname{} benannte Ansprechperson in Abstimmung mit dem Auftragnehmer vereinbart. Der Auftragnehmer entscheidet eigenständig über zeitliche Einplanung und Reihenfolge der Einzelabrufe, sofern keine abweichende Priorisierung zwischen den Vertragsparteien vereinbart wird.
+
+Der Auftragnehmer wählt Methoden, Werkzeuge und Arbeitsorganisation eigenverantwortlich. Technische Vorgaben von \ClientKurzname{} sind nur insoweit bindend, als sie durch bestehende technische Schnittstellen, Systemarchitekturen oder IT-Sicherheitsanforderungen bedingt sind.
+
+\subsection*{Qualitätssicherung}
+
+Der Auftragnehmer erbringt seine Leistungen nach dem anerkannten Stand der Technik und unter Berücksichtigung der von \ClientKurzname{} bereitgestellten Design-Vorgaben. Er wendet gängige Praktiken der Softwareentwicklung an, insbesondere nachvollziehbare Codestruktur und Wiederverwendbarkeit von Komponenten.
+
+Pull Requests und Code Reviews dienen als beidseitiger Qualitätssicherungs- und Integrationsprozess an der technischen Schnittstelle zwischen dem Auftragnehmer und dem Entwicklungsteam von \ClientKurzname. Sie stellen sicher, dass Beiträge des Auftragnehmers mit der bestehenden Codebasis kompatibel sind, und sind nicht als Überwachung oder Genehmigung der Arbeitsweise des Auftragnehmers zu verstehen.
+
+Die vorstehenden Qualitätskriterien beschreiben die vom Auftragnehmer geschuldete Sorgfalt bei der Leistungserbringung und begründen keine Erfolgsgarantie für ein bestimmtes Ergebnis.
+
+\subsection*{Systeme, Zielplattformen \& Tools}
+
+Soweit der Auftragnehmer auf Systeme von \ClientKurzname{} zugreift (z.\,B.\ Code-Repositories, CI/CD-Pipelines, Test- und Staging-Umgebungen), erfolgt dies aus technischer Notwendigkeit zur Integration seiner Arbeitsergebnisse und zur Einhaltung der IT-Sicherheitsanforderungen von \ClientKurzname.
+
+\begin{itemize}[itemsep=1pt,topsep=2pt]
+\item Plattformen: \PH{[Zielplattformen, z.\,B.\ Android und iOS; Web: Chrome, Safari, Firefox, Edge]}
+\item Programmiersprache, Frameworks \& weitere Tools: nach Absprache mit \ClientKurzname
+\end{itemize}
+
+\end{document}
